@@ -1,0 +1,71 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta charset="utf-8">
+
+  <title>Water usage</title>
+  <meta name="description" content="The HTML5 Herald">
+  <meta name="author" content="SitePoint">
+
+</head>
+
+<body>
+{% load static %}
+<script src="{% static 'chart/Chart.js' %}">
+</script>
+<h1>Water usage stats</h1>
+
+<p>first usage measurement: {{ first_usage }} L</p>
+<p>last usage measurement  {{ first_usage }} L</p>
+<p>Days between date {{ days_between }} <p>
+<p>Total usage {{ total_usage }} L </p>
+<p>Average usage {{ average_usage }} L per day</p>
+<style>
+    #container {
+        width: 50%;
+    }
+</style>
+<div id="container">
+    <canvas id="myChart"></canvas>
+</div>
+<script type="text/javascript">
+var ctx = document.getElementById("myChart");
+var data = {
+    labels: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+    datasets: [
+        {
+            label: "Water usage",
+            fill: false,
+            lineTension: 0.1,
+            backgroundColor: "rgba(75,192,192,0.4)",
+            borderColor: "rgba(75,192,192,1)",
+            borderCapStyle: 'butt',
+            borderDash: [],
+            borderDashOffset: 0.0,
+            borderJoinStyle: 'miter',
+            pointBorderColor: "rgba(75,192,192,1)",
+            pointBackgroundColor: "#fff",
+            pointBorderWidth: 1,
+            pointHoverRadius: 5,
+            pointHoverBackgroundColor: "rgba(75,192,192,1)",
+            pointHoverBorderColor: "rgba(220,220,220,1)",
+            pointHoverBorderWidth: 2,
+            pointRadius: 1,
+            pointHitRadius: 10,
+            data: [1,2,3,4,5,6,7],
+            spanGaps: false,
+        }
+    ]
+};
+var waterUsageChart = new Chart.Line(ctx, {
+    type: 'line',
+    data: data,
+    options: {
+        fullWidth: false,
+    }
+});
+</script>
+</body>
+</html>

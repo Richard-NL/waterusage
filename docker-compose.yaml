@@ -1,0 +1,8 @@
+version: '2'
+services:
+  django-waterusage:
+    build: ./django-project/.
+    volumes:
+      - ./django-project/:/code
+    ports:
+      - "8000:8000"

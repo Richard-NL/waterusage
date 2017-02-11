@@ -35,3 +35,11 @@ python3 manage.py runserver 192.168.192.11:8181
 
 ## create migration file
 python3 manage.py makemigrations water
+
+# Install node and chart.js
+## get all node versions
+nvm ls-remote
+nvm install 7.4.0
+nvm use 7.4.0
+# Chartjs
+npm install chart.js --save
